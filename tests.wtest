@@ -1,0 +1,105 @@
+import cosas.*
+import casa.*
+describe "test" {
+    
+  test "primer test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    //
+    assert.equals([heladera, cama, plancha], casa.cosas())
+  }
+
+  test "segundo test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    //
+    assert.equals(3, casa.cantidadDeCosasCompradas())
+  }
+
+  test "tercer test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.that(casa.tieneAlgun(electrodomestico))
+  }
+
+  test "cuarto test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.that(casa.tieneAlgun(mueble))
+  }
+
+  test "quinto test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.notThat(casa.tieneAlgun(comida))
+  }
+
+  test "sexto test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.that(casa.vieneDeComprar(electrodomestico))
+    assert.notThat(casa.vieneDeComprar(mueble))
+  }
+
+  test "séptimo test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.that(casa.esDerrochona())
+  }
+
+  test "octavo test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.equals([heladera, plancha], casa.comprados(electrodomestico))
+  }
+
+  test "noveno test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.equals([cama], casa.comprados(mueble))
+  }
+
+  test "décimo test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.equals([], casa.comprados(comida))
+  }
+
+  test "décimo primer test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.notThat(casa.malaEpoca())
+  }
+
+  test "décimo segundo test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.equals(
+        [tiraDeAsado, paqueteDeFideos],
+            casa.queFaltaComprar([tiraDeAsado, plancha, paqueteDeFideos]))
+  }
+
+  test "décimo tercer test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.that(casa.faltaComida())
+  }
+
+  test "décimo cuarto test" {
+    
+    casa.cosas([heladera, cama, plancha])
+    
+    assert.equals(#{electrodomestico, mueble}, casa.categoriasCompradas())
+  }
+}
